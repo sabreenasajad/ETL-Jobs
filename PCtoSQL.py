@@ -7,9 +7,7 @@ df = pd.read_csv('/sourceFile/countries.csv',encoding='latin-1')
 df = ps.sqldf(""" select * from df where ISO_ALPHA2 like 'A%'""")
 df = ps.sqldf(""" select *,(POPULATION + AREA_KM2) as Pop_Area from df """)
 df = ps.sqldf(""" select  NAME,NATIONALITY,COUNTRY_CODE,ISO_ALPHA2,CAPITAL,REGION_ID,Pop_Area from df """)
-# Convert columns if needed
-df['REGION_ID'] = df['REGION_ID'].astype(float)
-df['Pop_Area'] = df['Pop_Area'].astype(float)
+
 
 # Define the data types for each column
 dtype = {
